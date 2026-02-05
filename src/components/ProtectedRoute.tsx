@@ -23,6 +23,7 @@ function ProtectedRoute({ children }: ProtectedRouteProps) {
   // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
   if (!user) {
     // state에 현재 위치를 저장하여 로그인 후 돌아올 수 있게 함
+    // replace: 현재 위치를 기록하지 않고 이전 페이지로 이동 (덮어쓰기)
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 

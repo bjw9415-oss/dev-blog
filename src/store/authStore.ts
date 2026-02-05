@@ -10,6 +10,7 @@
  */
 
 import { create } from "zustand";
+//보관통을 만들겠다~
 import type { User } from "@/types";
 
 /**
@@ -44,3 +45,4 @@ export const useAuthStore = create<AuthState>((set) => ({
     setUser: (user) => set({ user }),
     setIsLoading: (isLoading) => set({ isLoading }),
 }));
+//상태와 이 상태를 변경하는 변경 함수를 같이 하나로 관리

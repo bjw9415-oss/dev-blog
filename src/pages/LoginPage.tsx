@@ -12,7 +12,7 @@ function LoginPage() {
 
     const navigate = useNavigate();
     const location = useLocation();  // 추가
-    console.log(location);
+    
     // 로그인 전에 가려던 페이지 (없으면 홈으로)
     const from = (location.state as { from?: { pathname: string } })?.from?.pathname || '/';
    
