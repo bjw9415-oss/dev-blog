@@ -145,12 +145,12 @@ function PostForm({
                     <option value="">카테고리 선택</option>
                     {categories.map((cat) => (
                         <option key={cat} value={cat}>
-                            {CATEGORY_LABELS[cat]} //여기서 cat은 'javascript', 'typescript', 'react', 'firebase', 'etc' 중 하나임
+                            {CATEGORY_LABELS[cat]} 
                         </option>
                     ))}
                 </select>
             </div>
-
+            
             {/* 내용 입력 */}
             <div>
                 <label
