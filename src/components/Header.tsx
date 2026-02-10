@@ -1,15 +1,7 @@
-// src/components/Header.tsx
-
-/**
- * 헤더 컴포넌트
- *
- * props 대신 Zustand 스토어에서 직접 user 정보를 가져옵니다.
- * 이제 어디서든 useAuthStore()로 인증 상태에 접근할 수 있습니다!
- */
-
 import { Link } from "react-router-dom";
 import { logout } from "@/lib/auth";
 import { useAuthStore } from "@/store/authStore";
+import { ROUTES } from "@/constants";
 import ThemeToggle from "./ThemeToggle";
 
 function Header() {
@@ -28,7 +20,7 @@ function Header() {
       <div className="container-main">
         <div className="flex items-center justify-between h-16">
           {/* 로고 */}
-          <Link to="/" className="text-xl font-bold">
+          <Link to={ROUTES.HOME} className="text-xl font-bold">
             📝 My Dev Blog
           </Link>
 
@@ -47,10 +39,10 @@ function Header() {
             ) : (
               // 비로그인 상태
               <>
-                <Link to="/login" className="btn-ghost">
+                <Link to={ROUTES.LOGIN} className="btn-ghost">
                   로그인
                 </Link>
-                <Link to="/signup" className="btn-primary">
+                <Link to={ROUTES.SIGNUP} className="btn-primary">
                   회원가입
                 </Link>
               </>
