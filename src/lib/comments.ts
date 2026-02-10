@@ -6,7 +6,6 @@ import {
   updateDoc,
   deleteDoc,
   query,
-  orderBy,
   where,
   Timestamp,
 } from "firebase/firestore";
@@ -48,16 +47,12 @@ export async function createComment(
 export async function getCommentsByPostId(
   postId: string,
 ): Promise<Comment[]> {
-  const q = query(
-    commentsCollection,
-    where("postId", "==", postId),
-    orderBy("createdAt", "asc"),
-  );
+  const q = query(commentsCollection, where("postId", "==", postId));
 
   const snapshot = await getDocs(q);
 
-  return snapshot.docs.map((doc) => {
-    const data = doc.data();
+  const comments = snapshot.docs.map((doc) => {
+    const data = doc.data() as Omit<Comment, "id">;
     return {
       id: doc.id,
       postId: data.postId,
@@ -69,6 +64,9 @@ export async function getCommentsByPostId(
       updatedAt: data.updatedAt,
     } as Comment;
   });
+
+  // 클라이언트 사이드 정렬 (생성일 순)
+  return comments.sort((a, b) => a.createdAt.seconds - b.createdAt.seconds);
 }
 
 /**

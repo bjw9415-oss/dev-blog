@@ -28,7 +28,8 @@ export function useCreateComment() {
       });
     },
 
-    onError: () => {
+    onError: (error) => {
+      console.error("댓글 등록 실패:", error);
       toast.error("댓글 등록에 실패했습니다");
     },
   });
