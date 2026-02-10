@@ -3,17 +3,13 @@
  */
 
 // 페이지네이션
-/**
- * 애플리케이션 상수 정의
- */
-
-// 페이지네이션
 export const PAGE_SIZE = 5;
 export const MAX_PAGE_SIZE = 50;
 
 // 입력 제한
 export const TITLE_MAX_LENGTH = 100;
 export const CONTENT_MAX_LENGTH = 50000;
+export const COMMENT_MAX_LENGTH = 1000;
 export const PASSWORD_MIN_LENGTH = 6;
 
 // 시간 단위 (ms)

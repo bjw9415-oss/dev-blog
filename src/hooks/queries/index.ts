@@ -4,3 +4,4 @@ export * from './usePosts';
 export * from './usePost';
 export * from './useInfinitePosts';
 export * from './keys';
+export * from './useComments';
